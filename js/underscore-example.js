@@ -70,23 +70,24 @@
 	];
 
 	// SIZE
-	console.log('Number of orders processed: ' + _.size(orders));
+	// questions - how many orders were processed ?
+	// console.log('Number of orders processed: ' + _.size(orders));
 
 	// LOOP
-	_.each(orders, function(order){
-		console.log("OrderNumber:" + order.orderNumber);
-	});
+	// _.each(orders, function(order){
+	// 	console.log("OrderNumber:" + order.orderNumber);
+	// });
 
 	// FIND 
-	console.log("orderNumber4:" + _.find(orders, function(order){ return order.orderNumber === '4'}).orderNumber);
+	console.log("ordernumber:" + _.find(orders, function(order){ return order.orderNumber === '4'}).orderNumber);
 
 	// FILTER
-	console.log("show me the money:" + _.filter(orders, function(order){ return order.orderTotal >= 50;}));
+	console.log("ORDERS THAT MAKE MONEY:" + _.filter(orders, function(order){ return order.orderTotal >= 50;}));
 
 	var ordersThatMakeMoney = _.filter(orders, function(order){ return order.orderTotal >= 50;});
 	_.each(ordersThatMakeMoney, function(order){
 		console.log("OrderNumber :" + order.orderNumber + "->" + order.orderTotal);
-	// });
+	});
 
 // REFACTOR START
 	var highPricedOrders = function(order){
@@ -107,24 +108,26 @@ var sumOrders = function(acc, order){
 	return acc + order.orderTotal;
 };
 
-// console.log('order total: ' + _.reduce(orders, sumOrders, 0));
+console.log('order total: ' + _.reduce(orders, sumOrders, 0));
+console.log('order total: ' + _.reduceRight(orders, sumOrders, 0));
 
-// console.log('order total: ' + _.reduceRight(orders, sumOrders, 0));
-
-// var atHomeOrders = _.findWhere(orders, {atHomeInd: true});
-// // WHERE
-// console.log(_.where(orders, {atHomeInd: true}));
-// console.log(atHomeOrders);
+var atHomeOrders = _.findWhere(orders, {atHomeInd: true})
+// WHERE
+console.log(_.where(orders, {atHomeInd: true}));
+console.log(atHomeOrders);
 // PLUCK
-// console.log(_.pluck(atHomeOrders, "orderNumber"));
+console.log(_.pluck(_.where(orders, {atHomeInd: true}), "orderNumber"));
 
 // // MAX
-// console.log("Best order:" + _.max(orders, highPricedOrders).orderNumber);
+console.log("Best order:" + _.max(orders, highPricedOrders).orderNumber);
 
 // // GROUP BY
 // // show me all orders in progress
-// console.log("Group by: %j",  _.groupBy(orders, 'status'));
-// var inProcess = function(order){
-// 	return order.orderStatus === 'IN_PROCESS';
-// };
-// console.log("Count by: %j",  _.countBy(orders, 'status'));
+console.log("Group by: %j",  _.groupBy(orders, 'status'));
+var inProcess = function(order){
+	return order.orderStatus === 'IN_PROCESS';
+};
+console.log("Count by: %j",  _.countBy(orders, 'status'));
+
+
+
