@@ -33,14 +33,26 @@ var wallModels = [
 ];
 
 
+
+
+
 // GET THE PRIMARY door
-// var allDoorsIncludesNull = _.map(wallModels, function(wallModel){
-// 	return wallModel.doors;
-// });
-// var allDoors =  _.compact(_.flatten(allDoorsIncludesNull));
-// console.log('all doors %j', allDoors);
-// var primaryDoor = _.findWhere(allDoors, {isPrimary: true});
-// console.log('primary door %j', primaryDoor);
+var allDoorsIncludesNull = _.map(wallModels, function(wallModel){
+	return wallModel.doors;
+});
+var allDoors =  _.compact(_.flatten(allDoorsIncludesNull));
+console.log('all doors %j', allDoors);
+var primaryDoor = _.findWhere(allDoors, {isPrimary: true});
+console.log('primary door %j', primaryDoor);
+
+
+
+
+
+
+
+
+
 
 //REFACTOR start
 var doorModels = function(wallModel){
@@ -56,3 +68,10 @@ console.log(_.chain(wallModels)
 	// .tap(console.log)
 	.filter(isPrimary)
 	.value());
+
+// REFACTOR: END
+
+// WHY UNDERSCORE is not pure functional library ??
+
+// var allDoorsComposition = _.compose(_.compact, _.flatten, _.map(doorModels));
+// console.log(allDoorsComposition(wallModels));

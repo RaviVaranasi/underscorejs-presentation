@@ -93,6 +93,7 @@
 		return order.orderTotal >= 50;
 	};
 
+
 	var showMeOrdersWithMoney = function(order){
 		return "OrderNumber :" + order.orderNumber + "->" + order.orderTotal;
 	};

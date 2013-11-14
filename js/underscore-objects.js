@@ -38,12 +38,11 @@ var doBadThings = function() {
 
 _.extend(captainCook, {doBadThings: doBadThings});
 captainCook.doBadThings();
+
 console.log("Functions %j", _.functions(peterpan));
 
 console.log("isArray:" + _.isArray(peterpan));
 console.log("isArray:" + _.isObject(peterpan));
 console.log("isArray:" + _.isArray([peterpan, captainCook]));
 
-
-// tap
 
