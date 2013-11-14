@@ -9,3 +9,6 @@ To run the javascript examples, setup sublime text editor (http://logicmason.com
     "selector": "*.js"
 }
 ```
+
+
+[Slides](http://slid.es/ravi116/underscore-js)
